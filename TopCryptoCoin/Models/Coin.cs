@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace TopCryptoCoin.Models
 {
-    internal class Coin
+    public class Coin
     {
+        public string? Id { get; set; }
+        public string? Sybol { get; set; }
+        public string? Name { get; set; }
+        public decimal CurrentPrice { get; set; }
+        public decimal PriceChangingTo24h { get; set; }
     }
 }
