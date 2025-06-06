@@ -6,7 +6,44 @@
         xmlns:local="clr-namespace:TopCryptoCoin"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
+    <Window.Resources>
+        <Style x:Key="ButtonStyle" TargetType="{x:Type Button}">
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="20"/>
+            <Setter Property="FontSize" Value="32"/>
+        </Style>
+    </Window.Resources>
+    <Grid Background="LightGray">
+        <Grid.ColumnDefinitions >
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
 
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <Label Grid.Row="0" Grid.Column="0" Content="Top Crypto Coin"
+               VerticalAlignment="Center" HorizontalAlignment="Center"
+               FontSize="32" FontWeight="Bold"/>
+
+        <Button x:Name="ButtonStart" Grid.Column="1" Grid.Row="1"
+                Style="{DynamicResource ButtonStyle}" Content="Start"/>
+
+        <Button x:Name="ButtonEnd" Grid.Column="1" Grid.Row="2"
+                Style="{DynamicResource ButtonStyle}" Content="End"/>
+
+        <Button x:Name="ButtonChangeTheme" Grid.Column="2"
+                Margin="30 30 150 30">
+        </Button>
+
+        <Button x:Name="ButtonChangeLang" Grid.Column="2"
+                Margin="150 30 30 30"/>
     </Grid>
 </Window>
