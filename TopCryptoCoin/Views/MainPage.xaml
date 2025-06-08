@@ -1,15 +1,16 @@
-﻿<Page x:Class="TopCryptoCoin.MainPage"
+﻿<Page x:Class="TopCryptoCoin.ViewModels.MainPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	  xmlns:local="clr-namespace:TopCryptoCoin.ViewModels"
       mc:Ignorable="d"
-      Background="LightGray">
+      Background="LightGray">   
 
-	<Grid Margin="20" Height="300" Width="600">
+	<Grid Margin="20">
 		<Grid.ColumnDefinitions>
 			<ColumnDefinition Width="Auto"/>
-			<ColumnDefinition Width="*"/>
+			<ColumnDefinition Width="Auto"/>
 			<ColumnDefinition Width="Auto"/>
 		</Grid.ColumnDefinitions>
 

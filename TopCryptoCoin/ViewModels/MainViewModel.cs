@@ -1,12 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Windows.Controls;
 
 namespace TopCryptoCoin.ViewModels
 {
-    internal class MainViewModel
+    partial class MainPage : Page
     {
+        public MainPage()
+        {
+            InitializeComponent();
+        }
     }
 }

@@ -34,7 +34,7 @@
                FontSize="32" FontWeight="Bold"/>
 
         <Button x:Name="ButtonStart" Grid.Column="1" Grid.Row="1"
-                Style="{DynamicResource ButtonStyle}" Content="Start"/>
+                Style="{DynamicResource ButtonStyle}" Content="Start" Click="ButtonStart_Click"/>
 
         <Button x:Name="ButtonEnd" Grid.Column="1" Grid.Row="2"
                 Style="{DynamicResource ButtonStyle}" Content="End"/>
@@ -45,5 +45,7 @@
 
         <Button x:Name="ButtonChangeLang" Grid.Column="2"
                 Margin="150 30 30 30"/>
+
+        <Frame x:Name="MainFrame" Grid.Row="0" Grid.RowSpan="4" Grid.ColumnSpan="3"/>
     </Grid>
 </Window>
