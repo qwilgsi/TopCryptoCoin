@@ -10,7 +10,7 @@
 	<Grid Margin="20">
 		<Grid.ColumnDefinitions>
 			<ColumnDefinition Width="Auto"/>
-			<ColumnDefinition Width="Auto"/>
+			<ColumnDefinition Width="*"/>
 			<ColumnDefinition Width="Auto"/>
 		</Grid.ColumnDefinitions>
 
@@ -41,7 +41,11 @@
                   HorizontalAlignment="Stretch">
 			<ListView.ItemTemplate>
 				<DataTemplate>
-					<TextBlock Text="{Binding}" FontSize="16"/>
+					<StackPanel Orientation="Horizontal">
+						<TextBlock Text="{Binding Name}" FontWeight="Bold" Margin="0,0,5,0"/>
+						<TextBlock Text="{Binding Sybol}" Foreground="Gray" Margin="0,0,5,0"/>
+						<TextBlock Text="{Binding CurrentPrice, StringFormat='{}{0:C}'}"/>
+					</StackPanel>
 				</DataTemplate>
 			</ListView.ItemTemplate>
 		</ListView>
