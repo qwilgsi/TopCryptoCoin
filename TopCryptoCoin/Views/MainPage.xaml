@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 	  xmlns:local="clr-namespace:TopCryptoCoin.ViewModels"
       mc:Ignorable="d"
-      Background="LightGray">   
+      Background="LightGray">
 
 	<Grid Margin="20">
 		<Grid.ColumnDefinitions>
@@ -20,30 +20,38 @@
 			<RowDefinition Height="*"/>
 		</Grid.RowDefinitions>
 
-		<TextBox x:Name="SearchBox"
-                 Grid.Column="0" Grid.Row="0" Height="30"
+		<TextBox Grid.Column="0" Grid.Row="0" Height="30"
                  VerticalAlignment="Top"
                  Margin="10,10,5,0"
                  FontSize="16"
+				 Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}"
                  />
 
-		<Button x:Name="ConfirmButton"
-                Grid.Column="0"
-                Content="Confirm"
+		<Button Grid.Column="0"
+                Content="Reset"
                 FontSize="14"
-                Margin="132,50,5,24"/>
+                Margin="132,50,5,24"
+				Command="{Binding ResetCommand}"
+				/>
+
+		<Button Grid.Column="0"
+                Content="Search"
+                FontSize="14"
+                Margin="68,50,68,24"
+				Command="{Binding SearchCommand}"/>
 
 		<ListView x:Name="ListViewCoins"
                   Grid.Column="1" Grid.Row="0"
                   Grid.RowSpan="3"
                   Margin="20"
                   VerticalAlignment="Stretch"
-                  HorizontalAlignment="Stretch">
+                  HorizontalAlignment="Stretch"
+				  ItemsSource="{Binding Coins}">
 			<ListView.ItemTemplate>
 				<DataTemplate>
 					<StackPanel Orientation="Horizontal">
 						<TextBlock Text="{Binding Name}" FontWeight="Bold" Margin="0,0,5,0"/>
-						<TextBlock Text="{Binding Sybol}" Foreground="Gray" Margin="0,0,5,0"/>
+						<TextBlock Text="{Binding Symbol}" Foreground="Gray" Margin="0,0,5,0"/>
 						<TextBlock Text="{Binding CurrentPrice, StringFormat='{}{0:C}'}"/>
 					</StackPanel>
 				</DataTemplate>

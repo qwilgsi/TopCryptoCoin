@@ -27,13 +27,6 @@ namespace TopCryptoCoin.Services
             var response = await _http.GetAsync(url);
             response.EnsureSuccessStatusCode();
 
-            var content = await response.Content.ReadAsStringAsync();
-
-            if (!response.IsSuccessStatusCode)
-            {
-                throw new Exception($"HTTP {(int)response.StatusCode} {response.ReasonPhrase}: {content}");
-            }
-
             var stream = await response.Content.ReadAsStreamAsync();
             return await JsonSerializer.DeserializeAsync<List<Coin>>(stream, new JsonSerializerOptions 
             { 
