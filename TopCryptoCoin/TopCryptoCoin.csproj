@@ -9,8 +9,22 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\Back.png" />
+    <None Remove="Resources\DarkMoon.png" />
+    <None Remove="Resources\Exit.png" />
+    <None Remove="Resources\WhiteMoon.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Back.png" />
+    <Resource Include="Resources\DarkMoon.png" />
+    <Resource Include="Resources\Exit.png" />
+    <Resource Include="Resources\WhiteMoon.png" />
   </ItemGroup>
 
 </Project>

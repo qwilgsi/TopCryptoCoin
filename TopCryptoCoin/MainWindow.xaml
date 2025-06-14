@@ -5,47 +5,79 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TopCryptoCoin"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Top Crypto Coin" Height="500" Width="850" WindowStartupLocation="CenterScreen">
     <Window.Resources>
-        <Style x:Key="ButtonStyle" TargetType="{x:Type Button}">
-            <Setter Property="BorderThickness" Value="1"/>
-            <Setter Property="HorizontalContentAlignment" Value="Center"/>
-            <Setter Property="VerticalContentAlignment" Value="Center"/>
-            <Setter Property="Margin" Value="20"/>
-            <Setter Property="FontSize" Value="32"/>
+        <SolidColorBrush x:Key="LightGray" Color="#F0F0F0"/>
+        <SolidColorBrush x:Key="MediumGray" Color="#D3D3D3"/>
+        <SolidColorBrush x:Key="DarkGray" Color="#A9A9A9"/>
+        <SolidColorBrush x:Key="SoftGreen" Color="#DFF5E1"/>
+        <SolidColorBrush x:Key="AccentGreen" Color="#9FD9A7"/>
+        <SolidColorBrush x:Key="AccentGreenHover" Color="#8CCB95"/>
+        <SolidColorBrush x:Key="AccentGreenPressed" Color="#78BA84"/>
+        <SolidColorBrush x:Key="TextGray" Color="#444"/>
+
+        <Style x:Key="GreenButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="{StaticResource AccentGreen}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource DarkGray}"/>
+            <Setter Property="Foreground" Value="{StaticResource TextGray}"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Height" Value="50"/>
+            <Setter Property="Width" Value="200"/>
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" 
+                                BorderBrush="{TemplateBinding BorderBrush}" 
+                                BorderThickness="1" 
+                                CornerRadius="10">
+                            <ContentPresenter HorizontalAlignment="Center" 
+                                              VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="{StaticResource AccentGreenHover}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" Value="{StaticResource AccentGreenPressed}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Background" Value="{StaticResource MediumGray}"/>
+                                <Setter Property="Foreground" Value="{StaticResource DarkGray}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
         </Style>
     </Window.Resources>
-    <Grid Background="LightGray">
-        <Grid.ColumnDefinitions >
+
+    <Grid Background="{StaticResource LightGray}">
+        <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
+            <RowDefinition Height="1.5*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <Label Grid.Row="0" Grid.Column="0" Content="Top Crypto Coin"
+        <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Content="Top Crypto Coin"
                VerticalAlignment="Center" HorizontalAlignment="Center"
-               FontSize="32" FontWeight="Bold"/>
+               FontSize="42" FontWeight="Bold" Foreground="{StaticResource TextGray}"/>
 
         <Button x:Name="ButtonStart" Grid.Column="1" Grid.Row="1"
-                Style="{DynamicResource ButtonStyle}" Content="Start" Click="ButtonStart_Click"/>
+                Style="{StaticResource GreenButtonStyle}" Content="Start" Click="ButtonStart_Click"/>
 
         <Button x:Name="ButtonEnd" Grid.Column="1" Grid.Row="2"
-                Style="{DynamicResource ButtonStyle}" Content="End"/>
+                Style="{StaticResource GreenButtonStyle}" Content="End"/>
 
-        <Button x:Name="ButtonChangeTheme" Grid.Column="2"
-                Margin="30 30 150 30">
-        </Button>
-
-        <Button x:Name="ButtonChangeLang" Grid.Column="2"
-                Margin="150 30 30 30"/>
-
-        <Frame x:Name="MainFrame" Grid.Row="0" Grid.RowSpan="4" Grid.ColumnSpan="3"/>
+        <Frame x:Name="MainFrame" Grid.Row="0" Grid.RowSpan="3" Grid.ColumnSpan="3" 
+               Margin="0,0,0,0" NavigationUIVisibility="Hidden" />
     </Grid>
 </Window>
