@@ -1,12 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using TopCryptoCoin.Models;
 
 namespace TopCryptoCoin.ViewModels
 {
-    internal class CoinDetailViewModel
+    partial class CoinDetailViewModel
     {
+        public Coin Coin { get; }
+
+        public CoinDetailViewModel(Coin coin) 
+        {
+            Coin = coin;
+        }
     }
 }

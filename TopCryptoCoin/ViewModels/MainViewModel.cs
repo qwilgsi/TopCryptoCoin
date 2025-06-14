@@ -8,18 +8,21 @@ using TopCryptoCoin.Services;
 
 namespace TopCryptoCoin.ViewModels
 {
-    partial class MainPage : Page, INotifyPropertyChanged
+    public class MainViewModel : INotifyPropertyChanged
     {
+        public Frame MainFrame { get; }
+
         private readonly CoinGeckoService _service = new();
         private ObservableCollection<Coin> _allCoins = new();
 
-        private ObservableCollection<Coin> _coins = new();
-        public ObservableCollection<Coin> Coins
+        public ObservableCollection<Coin> Coins { get; set; } = new();
+        private Coin _selectedCoin;
+        public Coin SelectedCoin
         {
-            get => _coins;
+            get => _selectedCoin;
             set
             {
-                _coins = value;
+                _selectedCoin = value;
                 OnPropertyChanged();
             }
         }
@@ -41,10 +44,9 @@ namespace TopCryptoCoin.ViewModels
         public ICommand SearchCommand { get; }
         public ICommand ResetCommand { get; }
 
-        public MainPage()
+        public MainViewModel(Frame mainFrame)
         {
-            InitializeComponent();
-            DataContext = this;
+            MainFrame = mainFrame;
             SearchCommand = new RelayCommand(ExecuteSearch);
             ResetCommand = new RelayCommand(ExecuteReset);
             LoadCoins();
@@ -76,7 +78,6 @@ namespace TopCryptoCoin.ViewModels
             SearchText = string.Empty;
             OnPropertyChanged(nameof(SearchText));
         }
-
 
         public event PropertyChangedEventHandler? PropertyChanged;
         protected void OnPropertyChanged([CallerMemberName] string? propertyName = null) =>

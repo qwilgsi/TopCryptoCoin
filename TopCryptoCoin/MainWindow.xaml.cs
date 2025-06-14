@@ -1,5 +1,5 @@
 ﻿using System.Windows;
-using TopCryptoCoin.ViewModels;
+using TopCryptoCoin.Views;
 
 namespace TopCryptoCoin
 {
@@ -12,7 +12,7 @@ namespace TopCryptoCoin
 
         private void ButtonStart_Click(object sender, RoutedEventArgs e)
         {
-            MainFrame.Navigate(new MainPage());
+            MainFrame.Navigate(new MainPage(MainFrame));
         }
     }
 }
