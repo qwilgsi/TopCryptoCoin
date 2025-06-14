@@ -17,6 +17,7 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
@@ -28,6 +29,12 @@
 
         <TextBlock Text="Current price" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" FontSize="16" Margin="0,10"/>
         <TextBox Text="{Binding Coin.CurrentPrice, StringFormat=' {0:C}'}" FontSize="16" Grid.Row="2" Grid.Column="1" Margin="5,10"/>
+
+        <TextBlock Text="Total Volume" Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" FontSize="16" Margin="0,10"/>
+        <TextBox Text="{Binding Coin.TotalVolume}" FontSize="16" Grid.Row="3" Grid.Column="1" Margin="5,10"/>
+
+        <TextBlock Text="Available on Markets" Grid.Row="4" Grid.Column="0" VerticalAlignment="Top" FontSize="16" Margin="0,10"/>
+        <ListBox ItemsSource="{Binding Coin.MarketPlatforms}" MouseDoubleClick="MarketListBox_MouseDoubleClick" Grid.Row="4" Grid.Column="1" Margin="5,10"/>
 
         <Border Grid.Row="0" Grid.RowSpan="4" Grid.Column="2" Grid.ColumnSpan="2" Margin="20"
                 BorderBrush="Black" BorderThickness="1">

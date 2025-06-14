@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Text.Json.Serialization;
@@ -23,6 +24,14 @@ namespace TopCryptoCoin.Models
 
         [JsonPropertyName("price_change_percentage_24h")]
         public decimal PriceChangingTo24h { get; set; }
+
+        [JsonPropertyName("total_volume")]
+        public decimal TotalVolume { get; set; }
+        public ObservableCollection<CoinMarketPlatform> MarketPlatforms { get; set; } = new();
+
+        public string TradeUrl => $"https://www.coingecko.com/en/coins/{Id}";
+
+        // -----------------------------------------------
 
         public override string ToString()
         {

@@ -44,6 +44,8 @@ namespace TopCryptoCoin.ViewModels
         public ICommand SearchCommand { get; }
         public ICommand ResetCommand { get; }
 
+        // -----------------------------------------------
+
         public MainViewModel(Frame mainFrame)
         {
             MainFrame = mainFrame;
@@ -51,6 +53,8 @@ namespace TopCryptoCoin.ViewModels
             ResetCommand = new RelayCommand(ExecuteReset);
             LoadCoins();
         }
+
+        // -----------------------------------------------
 
         private async void LoadCoins()
         {
